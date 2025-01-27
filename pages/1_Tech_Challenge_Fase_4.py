@@ -13,7 +13,7 @@ st.set_page_config(
 #Menu lateral   
 st.sidebar.header("FIAP Pós Tech – Data Analytics")
 
-st.sidebar.info("Bem-vindo ao Dashboard Interativo! Aqui você encontrará insights estratégicos sobre o **mercado de petróleo** e **previsões** com base em modelos de **Machine Learning**. Explore as análises e descubra tendências importantes!") 
+st.sidebar.info("Criado pela turma **6DTAT de Data Analytics**, FIAP Pós Tech.") 
 
 #Corpo da página inicial 
 st.title("  Análise do Mercado de Petróleo")
