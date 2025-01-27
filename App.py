@@ -10,14 +10,9 @@ st.set_page_config(
 )
 
 # Conteúdo inicial da aplicação
-st.title('Bem-vindo ao Dashboard Interativo!')
+st.title('FIAP Pós Tech – Análise de Dados')
 
-st.write(
-    """
-    Explore análises estratégicas e previsões inovadoras com base em modelos de Machine Learning.
-    Navegue pelo menu lateral para acessar insights valiosos e descubra tendências no mercado de petróleo!
-    """
-)
+st.info("Bem-vindo ao Dashboard Interativo! Aqui você encontrará insights estratégicos sobre o **mercado de petróleo** e **previsões** com base em modelos de **Machine Learning**. Explore as análises e descubra tendências importantes!") 
 
 # Adicionando um divisor estilizado
 st.markdown("---")
