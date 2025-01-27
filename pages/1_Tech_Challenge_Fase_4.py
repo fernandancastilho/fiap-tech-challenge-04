@@ -33,9 +33,12 @@ def objetivo():
     st.write("""O projeto tem como objetivo desenvolver uma solução analítica integrada que combine storytelling, tecnologia e análise de dados, visando otimizar a previsão e a compreensão dos preços do petróleo e, assim, apoiar a tomada de decisão estratégica no setor.
 
 Para atingir esse objetivo, o trabalho contempla três ações principais que se complementam:
-1. Criação de um dashboard interativo no Power BI, permitindo a visualização de insights detalhados sobre os fatores que influenciam a variação dos preços do petróleo. Esses fatores incluem eventos geopolíticos, crises econômicas e oscilações na demanda energética global, sendo apresentados de forma clara e dinâmica para facilitar a interpretação dos usuários.
-2. Desenvolvimento de um modelo preditivo baseado em séries temporais, utilizando técnicas de Machine Learning, com o intuito de prever os preços futuros do petróleo e avaliar a performance de diferentes algoritmos.
-3. Estruturação de um plano de implementação que disponibilize o modelo preditivo em uma interface interativa e acessível, utilizando ferramentas modernas como o Streamlit. Essa etapa possibilita que os usuários explorem as previsões de forma intuitiva, promovendo maior integração entre o modelo e a aplicação prática no ambiente de negócios.
+#### 📊 Dashboard no Power BI
+Criação de um dashboard interativo no Power BI, permitindo a visualização de insights detalhados sobre os fatores que influenciam a variação dos preços do petróleo. Esses fatores incluem eventos geopolíticos, crises econômicas e oscilações na demanda energética global, sendo apresentados de forma clara e dinâmica para facilitar a interpretação dos usuários.
+#### 🤖 Modelo preditivo
+Desenvolvimento de um modelo preditivo baseado em séries temporais, utilizando técnicas de Machine Learning, com o intuito de prever os preços futuros do petróleo e avaliar a performance de diferentes algoritmos.
+#### 🖥️ Interface interativa
+Estruturação de um plano de implementação que disponibilize o modelo preditivo em uma interface interativa e acessível, utilizando ferramentas modernas como o Streamlit. Essa etapa possibilita que os usuários explorem as previsões de forma intuitiva, promovendo maior integração entre o modelo e a aplicação prática no ambiente de negócios.
 
 Com a integração dessas ações, o trabalho visa oferecer uma solução completa, prática e eficaz, que transforme dados complexos em informações estratégicas e acionáveis, fomentando análises preditivas de alta qualidade no mercado de petróleo.
         """)
