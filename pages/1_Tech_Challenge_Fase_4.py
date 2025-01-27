@@ -30,9 +30,7 @@ Neste contexto, o **Tech Challenge** apresenta-se como uma oportunidade prática
 
 def objetivo():
     st.write("### Objetivo")
-    st.write("""O projeto tem como objetivo desenvolver uma solução analítica integrada que combine storytelling, tecnologia e análise de dados, visando otimizar a previsão e a compreensão dos preços do petróleo e, assim, apoiar a tomada de decisão estratégica no setor.
-
-Para atingir esse objetivo, o trabalho contempla três ações principais que se complementam:
+    st.write("""O projeto tem como objetivo desenvolver uma solução analítica integrada que combine storytelling, tecnologia e análise de dados, visando otimizar a previsão e a compreensão dos preços do petróleo e, assim, apoiar a tomada de decisão estratégica no setor. Para atingir esse objetivo, o trabalho contempla três ações principais que se complementam:
 #### 📊 Dashboard no Power BI
 Criação de um dashboard interativo no Power BI, permitindo a visualização de insights detalhados sobre os fatores que influenciam a variação dos preços do petróleo. Esses fatores incluem eventos geopolíticos, crises econômicas e oscilações na demanda energética global, sendo apresentados de forma clara e dinâmica para facilitar a interpretação dos usuários.
 #### 🤖 Modelo preditivo
