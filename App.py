@@ -11,30 +11,37 @@ st.set_page_config(
 
 # Conteúdo inicial da aplicação
 st.title('FIAP Pós Tech – Análise de Dados')
+st.subheader("Dashboard Interativo para Análise de Dados e Modelagem Preditiva")
 
-st.info("Bem-vindo ao Dashboard Interativo! Aqui você encontrará insights estratégicos sobre o **mercado de petróleo** e **previsões** com base em modelos de **Machine Learning**. Explore as análises e descubra tendências importantes!") 
+st.info("""Bem-vindo ao **Dashboard Interativo**! 🎯 Aqui você pode explorar dados, descobrir insights estratégicos e acessar modelos preditivos desenvolvidos pela turma FIAP Pós Tech.
+        """)
 
-# Adicionando um divisor estilizado
-st.markdown("---")
+# Contexto inicial com informações sobre o trabalho
+st.markdown("""
+---
+📊 **O que você encontrará neste Dashboard?**
+- **Insights estratégicos** sobre o mercado de petróleo.
+- **Previsões baseadas em modelos de Machine Learning.**
+- **Interatividade** para explorar os dados de forma prática e dinâmica.      
+---
+""")
 
-# Seção: Sobre os integrantes
-st.write("""### 💻 Integrantes do Grupo""")
+st.write("##### 💻 Integrantes do Grupo")
 st.write("**FIAP Pós Tech – Data Analytics, 2025. Grupo 13.**")
 
-# Exibição dos integrantes com estilo adicional
-data_integrantes = {
-    "Nome": [
-        "Anderson Cardoso Pinto de Souza",
-        "Fernanda Nogueira Castilho",
-        "Jéssica da Silva Santos",
-        "Nicholas Todescan Franco de Camargo",
-        "Wagner Silveira Santos",
-    ],
-    "Matrícula": ["123456", "123456", "123456", "123456", "123456"],
-}
-df_integrantes = pd.DataFrame(data_integrantes)
+col1, col2 = st.columns(2)
 
-st.table(df_integrantes)
+with col1:
+    st.write("- **Anderson Cardoso Pinto de Souza**")
+    st.write("- **Fernanda Nogueira Castilho - RM: 357000**")
+    st.write("- **Jéssica da Silva Santos**")
+
+with col2:
+    st.write("- **Nicholas Todescan Franco de Camargo**")
+    st.write("- **Wagner Silveira Santos**")
+
+if st.button("👉 Explore agora!"):
+    st.write("Você pode começar navegando pelo menu lateral.")
 
 # Adicionando um rodapé estilizado
 st.markdown(
