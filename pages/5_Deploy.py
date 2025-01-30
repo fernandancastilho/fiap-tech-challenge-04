@@ -1,9 +1,6 @@
 import streamlit as st
 from datetime import date, timedelta
-import locale
-
-# Configuração de idioma para a data
-locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
+from babel.dates import format_date
 
 # Configurações do Streamlit
 st.set_page_config(page_title="Deploy | Tech Challenge 4 | FIAP", layout='wide')
@@ -54,8 +51,8 @@ st.markdown('<h2>📈 Previsão do Preço do Petróleo</h2>', unsafe_allow_html=
 DATA_INICIAL = date(2025, 1, 30)
 LIMITE_DIAS = 15
 
-# Formatando a data inicial para exibição na mensagem
-data_inicial_formatada = DATA_INICIAL.strftime("%d de %B de %Y")
+# Formatando a data inicial usando Babel
+data_inicial_formatada = format_date(DATA_INICIAL, format='long', locale='pt_BR')
 
 # Caixa de informações
 st.markdown(f"""
@@ -84,4 +81,4 @@ days = (end_date - DATA_INICIAL).days
 
 # Botão estilizado
 if st.button('Prever'):
-    st.success(f"✅ Previsão concluída para **{end_date.strftime('%d de %B de %Y')}**!")
+    st.success(f"✅ Previsão concluída para **{format_date(end_date, format='long', locale='pt_BR')}**!")
