@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 # Configuração inicial do aplicativo
 st.set_page_config(
@@ -10,22 +9,40 @@ st.set_page_config(
 )
 
 # Conteúdo inicial da aplicação
-st.title('FIAP Pós Tech – Análise de Dados')
+st.markdown('<h2><span style="color:#FF0055;">FIAP</span> Pós Tech – Análise de Dados</h2>', unsafe_allow_html=True)
 st.subheader("Dashboard Interativo para Análise de Dados e Modelagem Preditiva")
 
-st.info("""Bem-vindo ao **Dashboard Interativo**! 🎯 Aqui você pode explorar dados, descobrir insights estratégicos e acessar modelos preditivos desenvolvidos pela turma FIAP Pós Tech.
-        """)
-
-# Contexto inicial com informações sobre o trabalho
+# Mensagem de boas-vindas
 st.markdown("""
----
-📊 **O que você encontrará neste Dashboard?**
-- **Insights estratégicos** sobre o mercado de petróleo.
-- **Previsões baseadas em modelos de Machine Learning.**
-- **Interatividade** para explorar os dados de forma prática e dinâmica.      
----
-""")
+<div class="info-box">
+    <p><strong>Bem-vindo ao Dashboard Interativo!</strong> Aqui você pode <strong>explorar dados</strong>, <strong>descobrir insights estratégicos</strong> e <strong>acessar modelos preditivos</strong> desenvolvidos pela turma <span style="color:#FF0055;">FIAP</span> Pós Tech.</p>
+</div>
+""", unsafe_allow_html=True)
 
+# Seção "O que você encontrará"
+# Seção "O que você encontrará"
+st.markdown("""
+ <br/>           
+<h2 style="color:white; text-align:center;">📚 O que você encontrará neste Dashboard?</h2>
+
+<div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="background-color: #1e1e1e; padding: 20px; border-radius: 10px; border-left: 8px solid #FF0055;">
+        <h6 style="color:#FF0055;">📊 Insights Estratégicos</h6>
+        <p style="color:white; font-size: 16px;">Descubra informações valiosas sobre o mercado de petróleo, auxiliando na tomada de decisões estratégicas.</p>
+    </div>
+        <div style="background-color: #1e1e1e; padding: 20px; border-radius: 10px; border-left: 8px solid #FF0055;">
+             <h6 style="color:#FF0055;">🤖 Previsões de Machine Learning</h6>
+             <p style="color:white; font-size: 16px;">Acesse previsões precisas baseadas em modelos de Machine Learning, otimizando suas análises de mercado.</p>
+        </div>
+            <div style="background-color: #1e1e1e; padding: 20px; border-radius: 10px; border-left: 8px solid #FF0055;">
+              <h6 style="color:#FF0055;">🖥️ Interatividade</h6>
+              <p style="color:white; font-size: 16px;">Interaja com os dados por meio de filtros dinâmicos e gráficos personalizados, tornando a análise mais prática e envolvente.</p>
+            </div>
+</div>
+<br/>
+""", unsafe_allow_html=True)
+
+# Integrantes do grupo
 st.write("##### 💻 Integrantes do Grupo")
 st.write("**FIAP Pós Tech – Data Analytics, 2025. Grupo 13.**")
 
@@ -43,21 +60,32 @@ with col2:
 if st.button("👉 Explore agora!"):
     st.write("Você pode começar navegando pelo menu lateral.")
 
-# Adicionando um rodapé estilizado
-st.markdown(
-    """
-    <style>
-    .footer {
-        text-align: center;
-        font-size: 14px;
-        margin-top: 50px;
-        color: #666;
-        font-family: Arial, sans-serif;
-    }
-    </style>
-    <div class="footer">
+# Rodapé estilizado
+st.markdown("""
+    <div style="text-align: center; margin-top: 30px; color: #999;">
         Criado pela turma <strong>6DTAT de Data Analytics</strong>, FIAP Pós Tech.
     </div>
-    """,
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
+
+# CSS personalizado
+st.markdown("""
+    <style>
+        .info-box {
+            background-color: #333;
+            border-left: 5px solid #FF0055;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        h2, h3 {
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #999;
+        }
+    </style>
+""", unsafe_allow_html=True)
