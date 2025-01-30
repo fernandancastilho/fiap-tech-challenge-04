@@ -25,8 +25,8 @@ def introducao():
     st.subheader("Explorando Tendências no Mercado de Petróleo")
     st.write("""O mercado global de petróleo está entre os mais dinâmicos e imprevisíveis do mundo, sendo influenciado por fatores geopolíticos, crises econômicas e variações na demanda por energia. Essas flutuações impactam diretamente empresas, investidores e governos, exigindo ferramentas analíticas e preditivas para compreender o cenário e tomar decisões estratégicas.
     
-<p>Neste contexto, o <strong><span style="color:#FF0055;">Tech Challenge</span></strong> apresenta-se como uma oportunidade prática para aplicar conhecimentos técnicos e explorar como a análise de dados e o aprendizado de máquina podem oferecer insights sobre a evolução do preço do petróleo. O desafio inclui o desenvolvimento de um dashboard interativo e de um modelo preditivo que projete as oscilações diárias do preço do petróleo, com base em dados históricos, permitindo uma visão estratégica e fundamentada.</p>
-    """, unsafe_allow_html=True)
+Neste contexto, o **Tech Challenge** apresenta-se como uma oportunidade prática para aplicar conhecimentos técnicos e explorar como a análise de dados e o aprendizado de máquina podem oferecer insights sobre a evolução do preço do petróleo. O desafio inclui o desenvolvimento de um dashboard interativo e de um modelo preditivo que projete as oscilações diárias do preço do petróleo, com base em dados históricos, permitindo uma visão estratégica e fundamentada.
+    """)
     st.image("img_IA.png", caption="Fonte: Imagem gerada por IA (DALL·E 3)", use_container_width=True)
 
 def objetivo():
@@ -73,22 +73,3 @@ with tabs[1]:
 # Aba "Metodologia"
 with tabs[2]:  
     metodologia()
-
-# CSS para estilizar a barra de navegação
-st.markdown("""
-    <style>
-        .stTabs [data-baseweb="tab"] {
-            color: white;
-            font-weight: bold;
-        }
-
-        .stTabs [aria-selected="true"] {
-            color: #FF0055;
-            border-bottom: 5px solid #FF0055;
-        }
-
-        .stTabs [aria-selected="false"]:hover {
-            color: #FF0055;
-        }
-    </style>
-""", unsafe_allow_html=True)
