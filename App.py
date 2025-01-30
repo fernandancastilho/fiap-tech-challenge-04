@@ -39,9 +39,8 @@ st.markdown("""
               <p style="color:white; font-size: 16px;">Interaja com os dados por meio de filtros dinâmicos e gráficos personalizados, tornando a análise mais prática e envolvente.</p>
             </div>
 </div>
-<br/>
 """, unsafe_allow_html=True)
-
+st.divider()
 # Integrantes do grupo
 st.write("##### 💻 Integrantes do Grupo")
 st.write("**FIAP Pós Tech – Data Analytics, 2025. Grupo 13.**")
