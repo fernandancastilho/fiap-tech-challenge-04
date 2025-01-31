@@ -2,3 +2,4 @@ yfinance
 matplotlib
 babel
 seaborn
+statsmodels
