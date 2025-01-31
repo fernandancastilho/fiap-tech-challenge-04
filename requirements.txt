@@ -4,3 +4,4 @@ babel
 seaborn
 statsmodels
 plotly
+prophet 
