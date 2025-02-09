@@ -111,7 +111,7 @@ def train_model():
     )
     return reg
 
-if st.button("Prever"):    
+if st.button("Prever"):
     reg = train_model()
     last_n_days = basef.index[-diaspred:]
     x_test, y_test = basef.loc[last_n_days, selected_features], basef.loc[last_n_days, TARGET]
@@ -124,6 +124,7 @@ if st.button("Prever"):
     st.markdown("""
 
 """)
+
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("###### 📉 Preço do Dia Anterior")
@@ -209,8 +210,10 @@ if st.button("Prever"):
     # Exibir o gráfico no Streamlit
     st.plotly_chart(fig, use_container_width=True)
 
-
-
+    st.subheader("Previsões Futuras")
+    st.dataframe(future_df[['Previsão']].reset_index().rename(columns={'index': 'Data'}))
+    st.success("✅ Previsão concluída com sucesso!")
+    st.subheader("Confira também: ")
     with st.expander("📋 Explicação das Métricas"):
         st.write("""
         - **MAE (Erro Absoluto Médio):** Média dos erros absolutos entre os valores reais e previstos. Quanto menor, melhor.
@@ -243,6 +246,12 @@ if st.button("Prever"):
         ⚠️ **Importante:** O MAPE é uma métrica complementar à confiabilidade. Sempre verifique o contexto dos dados para interpretar as previsões corretamente.
         """)
 
-    st.subheader("Previsões Futuras")
-    st.dataframe(future_df[['Previsão']].reset_index().rename(columns={'index': 'Data'}))
-    st.success("✅ Previsão concluída com sucesso!")
+st.markdown("---")
+
+    # Rodapé estilizado
+st.markdown("""
+<div style="text-align: center; margin-top: 30px; color: #999;">
+        Criado pela turma <strong>6DTAT de Data Analytics</strong>, FIAP Pós Tech.
+    </div>
+""", unsafe_allow_html=True) 
+    
