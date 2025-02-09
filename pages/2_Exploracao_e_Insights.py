@@ -1,4 +1,3 @@
-# streamlit: name="Exploração e Insights"
 import streamlit as st
 import pandas as pd
 
@@ -11,22 +10,22 @@ st.set_page_config(
 )
 
 # Título principal da página
-st.markdown('<h2 class="main-title">📊 Exploração de Dados e Insights</h2>', unsafe_allow_html=True)
+st.markdown("""<h2 class="main-title">📊 Exploração de Dados e Insights</h2>""", unsafe_allow_html=True)
 
 # Análise geral e contextualização
-st.subheader("🔎 Análise Geral e Contextualização")
+st.subheader("🔍 Visão Geral: O que impulsiona os preços do petróleo?")
 
 # Descrição introdutória
 st.write("""
 Nesta página, você encontrará uma análise interativa dos dados históricos do preço do petróleo Brent entre **2006** e **2025**. Com o apoio do **Power BI** desenvolvemos um dashboard dinâmico que revela insights fundamentais para entender as flutuações dos preços ao longo do tempo.
 
-**Objetivo:** Explorar quatro insights principais que explicam os fatores que mais afetaram os preços e como eventos globais moldaram essas tendências.
+**Objetivo:** Explorar **quatro insights** principais que explicam os fatores que mais afetaram os preços e como eventos globais moldaram essas tendências.
 """)
 
 st.markdown("---")
 
 # Insight 1
-with st.expander("🔍 Insight 1: Impacto histórico de crises no preço do petróleo"):
+with st.expander("Insight 1: 🌍 Histórico e grandes crises (longo prazo e tendências de mercado)"):
     st.markdown("""
     ### **Contexto**
     Entre 2006 e 2025, o mercado de petróleo enfrentou diversas flutuações de preço, impulsionadas por fatores econômicos, políticos e de oferta. Durante este período, observamos que momentos de crise desempenharam um papel significativo na elevação dos preços médios, ao mesmo tempo em que períodos de recuperação contribuíram para estabilizações ou quedas.
@@ -47,9 +46,12 @@ with st.expander("🔍 Insight 1: Impacto histórico de crises no preço do petr
     - **Primavera Árabe (2011-2012):** A instabilidade geopolítica no Oriente Médio, região estratégica para a produção global de petróleo, desencadeou interrupções na oferta e impulsionou os preços.
     
     - **Crise Econômica de 2014:** A desaceleração global e políticas econômicas desfavoráveis na China e Europa reduziram a demanda por petróleo. O excesso de oferta intensificou a queda nos preços, resultando em uma das maiores desvalorizações do período.
-    
+
+    - **COVID-19 (2020):** A pandemia resultou em uma queda drástica na demanda global por petróleo, especialmente no setor de transporte e indústrias. Isso causou um acúmulo de estoques e queda nos preços, com o menor preço médio do período registrado em **9,12 USD/barril**.
+         
     - **Guerra da Rússia e Crise Energética (2022):** Com a invasão da Ucrânia, houve um choque no fornecimento global de petróleo, resultando no maior preço médio desde 2008.
     """)
+
    
     st.markdown("""
 
@@ -57,9 +59,9 @@ with st.expander("🔍 Insight 1: Impacto histórico de crises no preço do petr
 
     # Métricas específicas
     col1, col2, col3 = st.columns(3)
-    col1.metric(label="Maior Preço no Período", value="143,95 USD/barril")
+    col1.metric(label="Maior Preço Registrado", value="143,95 USD/barril", delta="📈 durante Primavera Árabe")
     col2.metric(label="Preço Médio", value="77,62 USD/barril")
-    col3.metric(label="Menor Preço", value="9,12 USD/barril")
+    col3.metric(label="Menor Preço", value="9,12 USD/barril", delta="📉 na COVID-19")
 
     st.markdown("""
     ### **Conclusão**
@@ -68,7 +70,7 @@ with st.expander("🔍 Insight 1: Impacto histórico de crises no preço do petr
 
 
 # Insight 2
-with st.expander("🔍 Insight 2: Como fatores geopolíticos e estratégias de produção influenciam o aumento do preço"):
+with st.expander("Insight 2: 📈 Impacto imediato de eventos geopolíticos (disparada de preços)"):
     st.markdown("""
     ### **Contexto**
     O preço do petróleo é extremamente sensível a eventos externos e internos, e nossa análise revelou que os maiores aumentos no preço médio estão associados a crises geopolíticas, instabilidade regional e decisões estratégicas de grandes players, como a Organização dos Países Exportadores de Petróleo (OPEP). Esses eventos atuam como catalisadores, criando desequilíbrios na oferta e na demanda, o que resulta em picos nos preços.
@@ -108,7 +110,7 @@ with st.expander("🔍 Insight 2: Como fatores geopolíticos e estratégias de p
     """)
 
 # Insight 3
-with st.expander("🔍 Insight 3: Como crises econômicas e pandemias influenciam a diminuição do preço"):
+with st.expander("Insight 3: 📉 Quedas abruptas devido a choques econômicos e pandemias (redução da demanda)"):
 
     # Contexto
     st.markdown("""
@@ -127,13 +129,13 @@ with st.expander("🔍 Insight 3: Como crises econômicas e pandemias influencia
     # Fatores-Chave Identificados
     st.markdown("""
     ### **Fatores-Chave Identificados**
-    - **Crise causada pela COVID-19 - -23,35 USD/barril:** A pandemia provocou a maior queda recente no preço do petróleo devido à desaceleração global e à queda na demanda por transporte e produção industrial. O acúmulo de estoques também pressionou os preços para baixo.
+    - **Crise causada pela COVID-19,  -23,35 USD/barril:** A pandemia provocou a maior queda recente no preço do petróleo devido à desaceleração global e à queda na demanda por transporte e produção industrial. O acúmulo de estoques também pressionou os preços para baixo.
 
-    - **Crise Econômica de 2014 - -15,31 USD/barril:** A combinação de uma oferta elevada e a desaceleração econômica global, especialmente em países emergentes, levou a um excesso de petróleo no mercado e a quedas acentuadas nos preços.
+    - **Crise Econômica de 2014,  -15,31 USD/barril:** A combinação de uma oferta elevada e a desaceleração econômica global, especialmente em países emergentes, levou a um excesso de petróleo no mercado e a quedas acentuadas nos preços.
 
     - **Fatores internos e externos (2015-2020) - -14,5 USD/barril:** Decisões internas relacionadas à produção excessiva, aliadas a contextos externos, contribuíram para quedas moderadas e prolongadas no preço do petróleo.
 
-    - **Outros fatores (Em branco) - -5,84 USD/barril:** Embora menores, fatores adicionais não especificados no gráfico também contribuíram para quedas sazonais, possivelmente relacionadas a ciclos de oferta e demanda.
+    - **Outros fatores (Em branco),  -5,84 USD/barril:** Embora menores, fatores adicionais não especificados no gráfico também contribuíram para quedas sazonais, possivelmente relacionadas a ciclos de oferta e demanda.
     """)
 
     st.markdown("""
@@ -152,7 +154,7 @@ with st.expander("🔍 Insight 3: Como crises econômicas e pandemias influencia
     """)
 
 # Insight 4
-with st.expander("🔍 Insight 4: O impacto da Primavera Árabe no mercado global de petróleo"):
+with st.expander("Insight 4: 🛢️ Primavera Árabe: Um evento regional com impacto global"):
 
     # Contexto
     st.markdown("""
@@ -197,12 +199,23 @@ with st.expander("🔍 Insight 4: O impacto da Primavera Árabe no mercado globa
 # Linha de separação
 st.markdown("---")
 
+# Conclusão geral
+st.markdown("<h3> ✅ Conclusão </h3>", unsafe_allow_html=True)
+
+st.write("""
+Durante a nossa análise, descobrimos que fatores como crises econômicas e geopolíticas influenciam diretamente os preços do petróleo. Esses eventos criam padrões que, quando observados ao longo do tempo, nos ajudam a entender e prever as oscilações do mercado. 
+
+Com base nesses aprendizados, desenvolvemos um modelo preditivo que utiliza dados históricos e tendências globais para fornecer previsões claras e confiáveis, facilitando decisões estratégicas.
+""")
+
+# Linha de separação
+st.markdown("---")
+
 # Próximos passos
 st.markdown("<h3>O que vem a seguir?</h3>", unsafe_allow_html=True)
 st.markdown("""
-Com base nas análises, implementamos um modelo preditivo utilizando **XGBoost** para previsões diárias do preço do petróleo Brent.
+O modelo preditivo desenvolvido utiliza algoritmos como o **XGBoost** para integrar fatores históricos e geopolíticos nas previsões diárias. Isso permite identificar padrões cíclicos e eventos inesperados, aprimorando a tomada de decisão em cenários de alta volatilidade.
 """)
-
 
 
 # Link para navegação
@@ -231,3 +244,10 @@ for name, link in references.items():
     st.markdown(f"- 🌐 [**{name}**]({link})")
 
 st.markdown("---")
+
+# Rodapé estilizado
+st.markdown("""
+<div style="text-align: center; margin-top: 30px; color: #999;">
+        Criado pela turma <strong>6DTAT de Data Analytics</strong>, FIAP Pós Tech.
+    </div>
+""", unsafe_allow_html=True)
