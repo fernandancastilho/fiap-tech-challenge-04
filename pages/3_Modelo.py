@@ -111,9 +111,9 @@ def train_model():
     )
     return reg
 
-st.markdown("---")
-
 if st.button("Prever"):
+st.markdown("---")
+    
     reg = train_model()
     last_n_days = basef.index[-diaspred:]
     x_test, y_test = basef.loc[last_n_days, selected_features], basef.loc[last_n_days, TARGET]
