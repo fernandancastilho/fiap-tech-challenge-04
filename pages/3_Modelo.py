@@ -121,6 +121,9 @@ if st.button("Prever"):
     ultimo_preco = basef[TARGET].iloc[-1]
     confiabilidade = max(0, 100 - mape)
 
+    st.markdown("""
+
+""")
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("###### 📉 Preço do Dia Anterior")
