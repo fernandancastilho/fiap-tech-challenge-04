@@ -221,7 +221,7 @@ O modelo preditivo desenvolvido utiliza algoritmos como o **XGBoost** para integ
 # Link para navegação
 st.markdown("""
     <div style="font-size:18px;">
-    👉 <a href="/Modelo_sugestao" target="_self" style="text-decoration: none; color: #1f77b4;">
+    👉 <a href="/Modelo" target="_self" style="text-decoration: none; color: #1f77b4;">
     Clique aqui para acessar a previsão de preços
     </a>
     </div>
