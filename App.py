@@ -36,7 +36,7 @@ st.markdown("""
         </div>
             <div style="background-color: #1e1e1e; padding: 20px; border-radius: 10px; border-left: 8px solid #FF0055;">
               <h6 style="color:#FF0055;">🖥️ Interatividade</h6>
-              <p style="color:white; font-size: 16px;">Interaja com os dados por meio de filtros dinâmicos e gráficos personalizados, tornando a análise mais prática e envolvente.</p>
+              <p style="color:white; font-size: 16px;">Interaja com os dados por meio de filtros dinâmicos e gráficos personalizados no PowerBI, tornando a análise mais prática e envolvente.</p>
             </div>
 </div>
 """, unsafe_allow_html=True)
@@ -48,13 +48,13 @@ st.write("**FIAP Pós Tech – Data Analytics, 2025. Grupo 13.**")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.write("- **Anderson Cardoso Pinto de Souza**")
+    st.write("- **Anderson Cardoso Pinto de Souza - RM: 357106**")
     st.write("- **Fernanda Nogueira Castilho - RM: 357000**")
-    st.write("- **Jéssica da Silva Santos**")
+    st.write("- **Jéssica da Silva Santos - RM: 356949**")
 
 with col2:
-    st.write("- **Nicholas Todescan Franco de Camargo**")
-    st.write("- **Wagner Silveira Santos**")
+    st.write("- **Nicholas Todescan Franco de Camargo - RM: 357423**")
+    st.write("- **Wagner Silveira Santos - RM: 357110**")
 
 if st.button("👉 Explore agora!"):
     st.write("Você pode começar navegando pelo menu lateral.")
