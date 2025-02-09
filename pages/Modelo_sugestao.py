@@ -39,6 +39,12 @@ st.markdown("""
             border-left: 5px solid #FF0055;
             font-size: 16px;
         }
+        .st-observation {
+            font-size: 14px;
+            color: #555;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -53,6 +59,7 @@ Defina a data desejada para prever o preço do barril de petróleo. O modelo se 
 Recomendamos previsões de curto prazo (<strong>7 a 15 dias</strong>) para maior precisão, mas você pode explorar até <strong>30 dias</strong> a partir de <strong>{data_inicial_formatada}</strong>.
 </div><br/>
 """, unsafe_allow_html=True)
+st.markdown('<div class="st-observation">* As previsões estão sendo realizadas com base em dados históricos dos últimos 20 anos.</div>', unsafe_allow_html=True)
 
 # Entrada do usuário
 diaspred = st.slider("Selecione o número de dias futuros:", min_value=1, max_value=30, value=7, step=1)
@@ -60,7 +67,7 @@ diaspred = st.slider("Selecione o número de dias futuros:", min_value=1, max_va
 # Carregar dados
 @st.cache_data
 def load_data():
-    df = yf.Ticker("BZ=F").history(period="10y", interval="1d").reset_index()
+    df = yf.Ticker("BZ=F").history(period="20y", interval="1d").reset_index()
     df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize(None)
     df.rename(columns={'Close': 'Preço - petróleo bruto (Brent) - em dólares'}, inplace=True)
     df = df[['Date', 'Preço - petróleo bruto (Brent) - em dólares']].set_index('Date').dropna()
@@ -143,16 +150,18 @@ if st.button("Prever"):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_plot['Data'][:30], y=df_plot['Preço'][:30], mode='lines+markers', name='Dados Reais'))
     fig.add_trace(go.Scatter(x=df_plot['Data'][30:], y=df_plot['Preço'][30:], mode='lines+markers', name='Previsão'))
+
     fig.update_layout(
-        title="Previsão do Preço do Petróleo (Brent)",
-        xaxis_title="Data",
-        yaxis_title="Preço (em dólares)",
-        plot_bgcolor="black",
-        paper_bgcolor="black",
-        font=dict(color="white"),
-        annotations=[dict(xref="paper", yref="paper", x=0, y=1.15, text=metricas_texto, showarrow=False)]
-    )
+    title="Previsão do Preço do Petróleo (Brent)",
+    xaxis_title="Data",
+    yaxis_title="Preço (em dólares)",
+    annotations=[dict(xref="paper", yref="paper", x=0, y=1.15, text=metricas_texto, showarrow=False)],
+    showlegend=True
+)
+
     st.plotly_chart(fig, use_container_width=True)
+
+
 
     with st.expander("📋 Explicação das Métricas"):
         st.write("""
