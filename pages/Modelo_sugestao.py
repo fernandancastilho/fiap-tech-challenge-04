@@ -105,76 +105,63 @@ def train_model():
     return reg
 
 if st.button("Prever"):
-    with st.spinner("🔄 Treinando o modelo e gerando a previsão... Isso pode levar alguns segundos."):
-        # Treinar o modelo
-        reg = train_model()
+    reg = train_model()
+    last_n_days = basef.index[-diaspred:]
+    x_test, y_test = basef.loc[last_n_days, selected_features], basef.loc[last_n_days, TARGET]
+    dtest = xgb.DMatrix(x_test)
+    preds_test = reg.predict(dtest)
+    mae, mse, rmse, mape = calculate_metrics(y_test, preds_test)
+    ultimo_preco = basef[TARGET].iloc[-1]
+    confiabilidade = max(0, 100 - mape)
 
-        # Avaliação usando os últimos "diaspred" conhecidos
-        last_n_days = basef.index[-diaspred:]
-        x_test, y_test = basef.loc[last_n_days, selected_features], basef.loc[last_n_days, TARGET]
-        dtest = xgb.DMatrix(x_test)
-        preds_test = reg.predict(dtest)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("###### 📉 Preço do Dia Anterior")
+        st.write(f"**{ultimo_preco:.2f} USD**")
+    with col2:
+        st.markdown("###### 📊 Confiabilidade da Previsão")
+        st.write(f"**{confiabilidade:.2f}%**")
 
-        # Calcular métricas
-        mae, mse, rmse, mape = calculate_metrics(y_test, preds_test)
+    future_dates = pd.date_range(start=DATA_INICIAL + timedelta(days=1), periods=diaspred, freq='D')
+    future_df = pd.DataFrame(index=future_dates)
+    future_df['Ano'] = future_dates.year
+    future_df['Mês'] = future_dates.month
+    future_df['Dia'] = future_dates.day
+    future_df['Dia_Semana'] = future_dates.weekday
+    future_df['dia_anterior'] = [ultimo_preco] + [np.nan] * (len(future_dates) - 1)
+    future_df['dia_anterior'] = future_df['dia_anterior'].ffill()
+    dfuture = xgb.DMatrix(future_df[selected_features])
+    future_df['Previsão'] = reg.predict(dfuture)
 
-        # Último preço de fechamento considerado
-        ultimo_preco = basef[TARGET].iloc[-1]
+    df_plot = pd.DataFrame({
+        'Data': list(basef.index[-30:]) + list(future_df.index),
+        'Preço': list(basef[TARGET].iloc[-30:]) + list(future_df['Previsão']),
+        'Tipo': ['Real'] * 30 + ['Previsão'] * len(future_df)
+    })
 
-        # Cálculo de confiabilidade (100% - MAPE)
-        confiabilidade = max(0, 100 - mape)
+    metricas_texto = f"MAE: {mae:.4f}, MSE: {mse:.4f}, RMSE: {rmse:.4f}, MAPE: {mape:.2f}%"
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df_plot['Data'][:30], y=df_plot['Preço'][:30], mode='lines+markers', name='Dados Reais'))
+    fig.add_trace(go.Scatter(x=df_plot['Data'][30:], y=df_plot['Preço'][30:], mode='lines+markers', name='Previsão'))
+    fig.update_layout(
+        title="Previsão do Preço do Petróleo (Brent)",
+        xaxis_title="Data",
+        yaxis_title="Preço (em dólares)",
+        plot_bgcolor="black",
+        paper_bgcolor="black",
+        font=dict(color="white"),
+        annotations=[dict(xref="paper", yref="paper", x=0, y=1.15, text=metricas_texto, showarrow=False)]
+    )
+    st.plotly_chart(fig, use_container_width=True)
 
-        # Mostrar informações
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown("###### 📉 Preço do Dia Anterior")
-            st.write(f"**{ultimo_preco:.2f} USD**")
-        with col2:
-            st.markdown("###### 📊 Confiabilidade da Previsão")
-            st.write(f"**{confiabilidade:.2f}%**")
+    with st.expander("📋 Explicação das Métricas"):
+        st.write("""
+        - **MAE (Erro Absoluto Médio):** Média dos erros absolutos entre os valores reais e previstos. Quanto menor, melhor.
+        - **MSE (Erro Quadrático Médio):** Média dos erros ao quadrado. Penaliza erros maiores mais fortemente.
+        - **RMSE (Raiz do Erro Quadrático Médio):** Raiz quadrada do MSE, mantendo as unidades originais.
+        - **MAPE (Erro Absoluto Percentual Médio):** Percentual médio de erro em relação aos valores reais.
+        """)
 
-        # Previsões futuras
-        future_dates = pd.date_range(start=DATA_INICIAL + timedelta(days=1), periods=diaspred, freq='D')
-        future_df = pd.DataFrame(index=future_dates)
-        future_df['Ano'] = future_dates.year
-        future_df['Mês'] = future_dates.month
-        future_df['Dia'] = future_dates.day
-        future_df['Dia_Semana'] = future_dates.weekday
-        future_df['dia_anterior'] = [ultimo_preco] + [np.nan] * (len(future_dates) - 1)
-        future_df['dia_anterior'] = future_df['dia_anterior'].ffill()
-        dfuture = xgb.DMatrix(future_df[selected_features])
-        future_df['Previsão'] = reg.predict(dfuture)
-
-        # Criar gráfico
-        df_plot = pd.DataFrame({
-            'Data': list(basef.index[-30:]) + list(future_df.index),
-            'Preço': list(basef[TARGET].iloc[-30:]) + list(future_df['Previsão']),
-            'Tipo': ['Real'] * 30 + ['Previsão'] * len(future_df)
-        })
-
-        metricas_texto = f"MAE: {mae:.4f}, MSE: {mse:.4f}, RMSE: {rmse:.4f}, MAPE: {mape:.2f}%"
-        fig = go.Figure()
-        fig.add_trace(go.Scatter(x=df_plot['Data'][:30], y=df_plot['Preço'][:30], mode='lines+markers', name='Dados Reais'))
-        fig.add_trace(go.Scatter(x=df_plot['Data'][30:], y=df_plot['Preço'][30:], mode='lines+markers', name='Previsão'))
-        fig.update_layout(
-            title="Previsão do Preço do Petróleo (Brent)",
-            xaxis_title="Data",
-            yaxis_title="Preço (em dólares)",
-            plot_bgcolor="black",
-            paper_bgcolor="black",
-            font=dict(color="white"),
-            annotations=[dict(xref="paper", yref="paper", x=0, y=1.15, text=metricas_texto, showarrow=False)]
-        )
-        st.plotly_chart(fig, use_container_width=True)
-
-        with st.expander("📋 Explicação das Métricas"):
-            st.write("""
-            - **MAE (Erro Absoluto Médio):** Média dos erros absolutos entre os valores reais e previstos. Quanto menor, melhor.
-            - **MSE (Erro Quadrático Médio):** Média dos erros ao quadrado. Penaliza erros maiores mais fortemente.
-            - **RMSE (Raiz do Erro Quadrático Médio):** Raiz quadrada do MSE, mantendo as unidades originais.
-            - **MAPE (Erro Absoluto Percentual Médio):** Percentual médio de erro em relação aos valores reais.
-            """)
-
-        st.subheader("Previsões Futuras")
-        st.dataframe(future_df[['Previsão']].reset_index().rename(columns={'index': 'Data'}))
-        st.success("✅ Previsão concluída com sucesso!")
+    st.subheader("Previsões Futuras")
+    st.dataframe(future_df[['Previsão']].reset_index().rename(columns={'index': 'Data'}))
+    st.success("✅ Previsão concluída com sucesso!")
