@@ -243,8 +243,6 @@ references = {
 for name, link in references.items():
     st.markdown(f"- 🌐 [**{name}**]({link})")
 
-st.markdown("---")
-
 # Rodapé estilizado
 st.markdown("""
 <div style="text-align: center; margin-top: 30px; color: #999;">
