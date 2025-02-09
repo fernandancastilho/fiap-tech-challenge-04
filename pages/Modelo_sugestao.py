@@ -147,10 +147,54 @@ if st.button("Prever"):
     })
 
     metricas_texto = f"MAE: {mae:.4f}, MSE: {mse:.4f}, RMSE: {rmse:.4f}, MAPE: {mape:.2f}%"
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df_plot['Data'][:30], y=df_plot['Preço'][:30], mode='lines+markers', name='Dados Reais'))
-    fig.add_trace(go.Scatter(x=df_plot['Data'][30:], y=df_plot['Preço'][30:], mode='lines+markers', name='Previsão'))
 
+    # Ponto de transição (último dia real)
+    data_transicao = basef.index[-1]
+
+    # Criar o gráfico
+    fig = go.Figure()
+
+    # Adicionar dados reais e previsão
+    fig.add_trace(go.Scatter(
+    x=df_plot['Data'][:30],
+    y=df_plot['Preço'][:30],
+    mode='lines+markers',
+    name='Dados Reais',
+    line=dict(color='#5DADE2')  # Azul suave
+))
+    fig.add_trace(go.Scatter(
+    x=df_plot['Data'][30:],
+    y=df_plot['Preço'][30:],
+    mode='lines+markers',
+    name='Previsão',
+    line=dict(color='#F4D03F')  # Amarelo ouro suave
+))
+
+    # Adicionar linha vertical de transição com a cor da FIAP
+    fig.add_shape(
+    type='line',
+    x0=data_transicao,
+    y0=min(df_plot['Preço']) - 5,  # Ajuste do eixo Y para incluir margem
+    x1=data_transicao,
+    y1=max(df_plot['Preço']) + 5,
+    line=dict(color="#FF0055", width=2, dash='dash'),
+    name="Linha de Transição"
+)
+
+    # Anotação com a cor da FIAP
+    fig.add_annotation(
+    x=data_transicao,
+    y=max(df_plot['Preço']),
+    text="Início da Previsão",
+    showarrow=True,
+    arrowhead=2,
+    ax=20,
+    ay=-30,
+    font=dict(size=12, color="#FF0055"),
+    arrowcolor="#FF0055"
+)
+
+    # Configurações do layout
     fig.update_layout(
     title="Previsão do Preço do Petróleo (Brent)",
     xaxis_title="Data",
@@ -159,6 +203,7 @@ if st.button("Prever"):
     showlegend=True
 )
 
+    # Exibir o gráfico no Streamlit
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -169,6 +214,30 @@ if st.button("Prever"):
         - **MSE (Erro Quadrático Médio):** Média dos erros ao quadrado. Penaliza erros maiores mais fortemente.
         - **RMSE (Raiz do Erro Quadrático Médio):** Raiz quadrada do MSE, mantendo as unidades originais.
         - **MAPE (Erro Absoluto Percentual Médio):** Percentual médio de erro em relação aos valores reais.
+        """)
+
+    # Explicação sobre o modelo XGBoost
+    with st.expander("🤖 Por que utilizamos o XGBoost?"):
+        st.write("""
+    O **XGBoost (Extreme Gradient Boosting)** foi escolhido para este projeto devido às seguintes vantagens:
+    
+    - **Robustez para dados complexos:** O XGBoost é ideal para lidar com dados temporais, especialmente em situações onde existem flutuações rápidas, tendências ou sazonalidades.
+    - **Capacidade de lidar com dados não estacionários:** Dados financeiros, como o preço do petróleo, muitas vezes apresentam variações bruscas ao longo do tempo. O XGBoost pode capturar esses padrões de forma eficiente.
+    - **Eficiência Computacional:** O modelo é conhecido por seu treinamento rápido e otimização baseada em árvores de decisão, tornando-o uma escolha eficiente mesmo quando lidamos com grandes conjuntos de dados históricos.
+    - **Regularização integrada:** O XGBoost possui mecanismos internos para evitar o overfitting, o que é crucial ao prever séries temporais que podem ser voláteis.
+    
+    Embora o XGBoost não seja um modelo puramente dedicado a séries temporais como o ARIMA ou Prophet, ele é extremamente flexível e pode gerar previsões de alta qualidade ao incorporar variáveis de tempo, como feito neste projeto.
+    """)
+
+    with st.expander("📊 O que considerar ao analisar a confiabilidade?"):
+        st.write("""
+        A métrica de confiabilidade fornece uma visão prática da precisão da previsão:
+        
+        - **Valores acima de 85%**: Indicam previsões mais seguras e confiáveis. Nesses casos, as diferenças percentuais entre os valores reais e previstos tendem a ser pequenas.
+        - **Entre 70% e 85%**: Indicam previsões moderadamente confiáveis. A análise do MAPE pode ajudar a identificar se os erros percentuais são aceitáveis para o seu cenário.
+        - **Abaixo de 70%**: Requer atenção, pois indica uma maior variabilidade nas previsões. Avalie se há tendências bruscas no preço do petróleo ou mudanças externas que possam afetar os dados.
+
+        ⚠️ **Importante:** O MAPE é uma métrica complementar à confiabilidade. Sempre verifique o contexto dos dados para interpretar as previsões corretamente.
         """)
 
     st.subheader("Previsões Futuras")
