@@ -90,7 +90,7 @@ basef = create_lag_features(basef)  # Adicionar dia_anterior
 selected_features = ['Ano', 'Mês', 'Dia', 'Dia_Semana', 'dia_anterior']  # Incluindo dia_anterior
 
 if st.button("Prever"):
-    with st.spinner("🔄 Treinando o modelo e gerando a previsão... Isso pode levar alguns segundos."):
+    with st.spinner("🔄 Treinando o modelo e gerando a previsão... Isso pode levar até 5 minutos."):
         # Divisão de treino e teste
         x_train, y_train = basef[selected_features], basef[TARGET]
 
