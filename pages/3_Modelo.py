@@ -111,6 +111,8 @@ def train_model():
     )
     return reg
 
+st.markdown("---")
+
 if st.button("Prever"):
     reg = train_model()
     last_n_days = basef.index[-diaspred:]
