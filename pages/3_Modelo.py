@@ -9,6 +9,14 @@ from datetime import date, timedelta
 import yfinance as yf
 from babel.dates import format_date
 
+# Configurar o título da página e o ícone
+st.set_page_config(
+    page_title="Modelo Preditivo",  
+    page_icon="📈",  
+    layout="wide",  
+    initial_sidebar_state="expanded"  
+)
+
 # Função para calcular métricas
 def calculate_metrics(y_true, y_pred):
     mae = mean_absolute_error(y_true, y_pred)
