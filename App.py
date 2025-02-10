@@ -3,7 +3,7 @@ import streamlit as st
 # Configuração inicial do aplicativo
 st.set_page_config(
     page_title="FIAP Pós Tech – Análise de Dados",
-    page_icon="🌍",
+    page_icon="📚",
     layout="wide",
     initial_sidebar_state="expanded",
 )
