@@ -254,6 +254,10 @@ if st.button("Prever"):
         ⚠️ **Importante:** O MAPE é uma métrica complementar à confiabilidade. Sempre verifique o contexto dos dados para interpretar as previsões corretamente.
         """)
 
+if st.button("Atualizar Dados"):
+    st.cache_data.clear()
+    st.rerun()
+
     # Rodapé estilizado
 st.markdown("""
 <div style="text-align: center; margin-top: 30px; color: #999;">
