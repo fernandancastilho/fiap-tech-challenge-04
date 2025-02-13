@@ -119,6 +119,10 @@ def train_model():
     )
     return reg
 
+if st.button("Atualizar Dados"):
+    st.cache_data.clear()
+    st.rerun()
+
 if st.button("Prever"):
     reg = train_model()
     last_n_days = basef.index[-diaspred:]
@@ -253,10 +257,6 @@ if st.button("Prever"):
 
         ⚠️ **Importante:** O MAPE é uma métrica complementar à confiabilidade. Sempre verifique o contexto dos dados para interpretar as previsões corretamente.
         """)
-
-if st.button("Atualizar Dados"):
-    st.cache_data.clear()
-    st.rerun()
 
     # Rodapé estilizado
 st.markdown("""
