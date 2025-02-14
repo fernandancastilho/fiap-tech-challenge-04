@@ -25,9 +25,9 @@ def introducao():
 
 """)
     st.write("""
-O mercado global de petróleo tem um impacto significativo na economia mundial, influenciando diversos setores, desde o preço dos combustíveis até cadeias de produção industrial. As variações no preço do petróleo Brent, uma das principais referências globais, resultam de fatores geopolíticos, econômicos e mudanças na demanda por energia.
+O mercado global de petróleo tem um impacto fundamental na economia mundial, influenciando a maior parte dos setores econômicos, desde a produção de combustível até cadeias de produção industrial, sendo por exemplo a matéria-prima da produção do plástico. As variações no preço do petróleo Brent, uma das principais referências globais, resultam de fatores geopolíticos, econômicos e mudanças na demanda por energia e influencia fortemente as relações comerciais entre diversos países.
 
-No período de 2006 a 2025, esses preços foram moldados por eventos como crises financeiras, pandemias e conflitos internacionais, demonstrando a necessidade de uma análise criteriosa e previsões precisas para subsidiar tomadas de decisão estratégicas.
+No período de **2006** a **2025**, esses preços foram formados por importantes eventos pelo mundo, tais como crises financeiras, pandemias e conflitos internacionais, demonstrando a necessidade de uma análise criteriosa visando previsões precisas para subsidiar tomadas de decisão estratégicas no que se refere à produção e precificação do insumo em território nacional, principalmente o combustível.
 
 Este trabalho desenvolve um dashboard interativo e um modelo preditivo para estimar os preços futuros do petróleo, utilizando dados históricos e técnicas de aprendizado de máquina. A aplicação foi implementada no **Streamlit**, proporcionando aos usuários uma experiência interativa e prática.
 """)
@@ -39,7 +39,7 @@ def objetivo():
 
 """)
     st.write("""
-O objetivo central deste estudo é apresentar uma solução integrada de análise e previsão dos preços do petróleo Brent, com foco em previsões de curto e médio prazo, através dos seguintes resultados esperados:
+O objetivo central deste estudo é apresentar uma solução integrada de análise e previsão dos preços do petróleo Brent, com foco em previsões a curto e médio prazo, por meio das seguintes utilidades esperadas:
 
 1. **Dashboard no Power BI:** Apresentar insights relevantes sobre as oscilações nos preços do petróleo, destacando fatores geopolíticos e econômicos.
 
@@ -54,7 +54,7 @@ def metodologia():
 
 """)
     st.write("""
-A metodologia adotada neste estudo foi dividida em quatro etapas fundamentais, descritas a seguir:
+A metodologia utilizada neste estudo foi dividida em quatro etapas fundamentais, descritas a seguir:
 """)
 
     st.markdown("#### 1. Coleta e Pré-processamento dos Dados")
@@ -80,7 +80,7 @@ O modelo preditivo foi construído utilizando o algoritmo **XGBoost** (Extreme G
     st.write("""
 A aplicação final foi implementada no **Streamlit**, oferecendo uma interface interativa que permite aos usuários selecionar o período de previsão e visualizar os resultados de forma dinâmica. As principais funcionalidades incluem:
 
-- **Previsão de curto e médio prazo:** Intervalo de 7 a 30 dias.
+- **Previsão a curto e médio prazo:** Intervalo de 7 a 30 dias.
 - **Visualização de preços reais e previstos:** Gráficos interativos destacando a comparação entre os dados históricos e as previsões.
 - **Transparência nas métricas de desempenho:** Apresentação das métricas utilizadas e justificativa para a escolha do modelo.
 """)
