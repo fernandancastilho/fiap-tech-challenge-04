@@ -148,9 +148,7 @@ st.pyplot(fig)
 if st.checkbox("📋 Exibir tabela de dados"):
     st.write(basef)
 
-st.markdown("""
-
-""")
+st.markdown("---")
 
 # Rodapé estilizado
 st.markdown("""
