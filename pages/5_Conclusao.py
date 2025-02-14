@@ -39,3 +39,12 @@ st.markdown("""<h4>Ações</h4>
         &nbsp;&nbsp;&nbsp;&nbsp;Para auxiliar no processo, desenvolvemos uma aplicação que pode prever o preço do petróleo utilizando-se de dados estatísticos históricos para que, com uma informação bem próxima da realidade futura, a empresa possa tomar decisões melhores de negócio. Utilizando-se desse modelo preditivo, a empresa pode definir o melhor preço médio do combustível e distribuí-lo de maneira eficiente por todas as regiões do país para maximizar seus lucros.
     </p>
 """, unsafe_allow_html=True)
+
+st.markdown("---")
+
+# Rodapé estilizado
+st.markdown("""
+<div style="text-align: center; margin-top: 30px; color: #999;">
+        Criado pela turma <strong>6DTAT de Data Analytics</strong>, FIAP Pós Tech.
+    </div>
+""", unsafe_allow_html=True) 
