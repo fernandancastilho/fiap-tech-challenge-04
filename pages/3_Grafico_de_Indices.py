@@ -6,7 +6,7 @@ import yfinance as yf
 # Configurar o título da página e o ícone
 st.set_page_config(
     page_title="Gráfico e índices",  # Título da página
-    page_icon="📈",  # Ícone da página
+    page_icon="📊",  # Ícone da página
     layout="wide",  # Configuração do layout (wide ou centered)
     initial_sidebar_state="expanded"  # Estado inicial da barra lateral
 )
@@ -147,6 +147,10 @@ st.pyplot(fig)
 # ---- CHECKBOX PARA EXIBIR DADOS ----
 if st.checkbox("📋 Exibir tabela de dados"):
     st.write(basef)
+
+st.markdown("""
+
+""")
 
 # Rodapé estilizado
 st.markdown("""
