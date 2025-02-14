@@ -59,8 +59,6 @@ st.markdown("""
 st.markdown('<h2>📈 Previsão do Preço do Petróleo</h2>', unsafe_allow_html=True)
 
 # Data inicial e explicação
-DATA_INICIAL = date.today()
-data_inicial_formatada = format_date(DATA_INICIAL, format='long', locale='pt_BR')
 st.markdown(f"""
 <div class="st-info-box">
 Defina a data desejada para prever o preço do barril de petróleo. O modelo se baseia no fechamento do dia anterior para calcular as previsões futuras.
@@ -96,7 +94,7 @@ df = load_data()
 basef = create_time_features(df)
 TARGET = "Preço - petróleo bruto (Brent) - em dólares"
 selected_features = ['Ano', 'Mês', 'Dia', 'Dia_Semana', 'dia_anterior']
-
+DATA_INICIAL = basef.index[-1]
 # Divisão de treino e validação
 x = basef[selected_features]
 y = basef[TARGET]
