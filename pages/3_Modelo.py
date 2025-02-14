@@ -70,7 +70,7 @@ st.markdown('<div class="st-observation">* As previsões estão sendo realizadas
 # Entrada do usuário
 diaspred = st.slider("Selecione o número de dias futuros:", min_value=1, max_value=30, value=7, step=1)
 st.subheader("Configurações Avançadas")
-estimadores = st.slider("Selecione o número de estimadores a ser usado (Representa o número total de árvores de decisão que serão treinadas no modelo, Um número maior pode melhorar a precisão, mas também aumenta o risco de overfitting e o tempo de treinamento.)", min_value=50, max_value=1000, value=200, step=50)
+estimadores = st.slider("Selecione o número de estimadores a ser usado (Representa o número total de árvores de decisão que serão treinadas no modelo, Um número maior pode melhorar a precisão, mas também aumenta o risco de overfitting e o tempo de treinamento.)", min_value=5, max_value=1000, value=200, step=5)
 learning = st.slider("Selecione o learning rate a ser usado (Controla o peso de cada nova árvore ao ajustar o modelo, um learning rate baixo exige mais árvores e vice e versa.)", min_value=0.01, max_value=0.8, value=0.1, step=0.01)
 
 # Carregar dados
