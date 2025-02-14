@@ -100,7 +100,7 @@ st.markdown("---")
 
 # Rodapé estilizado
 st.markdown("""
-<div style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
-    Criado pela turma <strong>6DTAT de Data Analytics</strong>, FIAP Pós Tech.
-</div>
-""", unsafe_allow_html=True)
+<div style="text-align: center; margin-top: 30px; color: #999;">
+        Criado pela turma <strong>6DTAT de Data Analytics</strong>, FIAP Pós Tech.
+    </div>
+""", unsafe_allow_html=True) 
