@@ -3,12 +3,29 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
 
-# ---- TÍTULO E INTRODUÇÃO ----
-st.title("Análise da Variação Relativa do Petróleo e Outros Índices 📈🛢️")
+# Configurar o título da página e o ícone
+st.set_page_config(
+    page_title="Gráfico e índices",  # Título da página
+    page_icon="📈",  # Ícone da página
+    layout="wide",  # Configuração do layout (wide ou centered)
+    initial_sidebar_state="expanded"  # Estado inicial da barra lateral
+)
+
 st.markdown("""
-Este aplicativo analisa a relação entre o preço do petróleo Brent e variáveis econômicas globais, 
-como o **S&P 500**, **Ouro (Gold)**, **Índice DXY** e **TASI**.  
-""")
+    <style>
+        .st-info-box {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            border-left: 5px solid #FF0055;
+            font-size: 16px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# ---- TÍTULO E INTRODUÇÃO ----
+st.markdown("""<h2 class="main-title"> 📈🛢️Variação Relativa do Petróleo e Outros Índices</h2>""", unsafe_allow_html=True)
 
 # ---- FUNÇÃO PARA OBTER DADOS ----
 @st.cache_data
@@ -60,8 +77,18 @@ def get_data():
 # ---- OBTENDO OS DADOS ----
 basef = get_data()
 
+
+
+# Caixa de informações
+st.markdown("""
+<div class="st-info-box">
+Este aplicativo analisa a relação entre o preço do petróleo Brent e variáveis econômicas globais, como o S&P 500, Ouro (Gold), Índice DXY e TASI.
+</div>
+<br/>
+""", unsafe_allow_html=True)
+
 # ---- DESCRIÇÃO DAS VARIÁVEIS ----
-st.header("📊 Descrição das Variáveis")
+st.markdown("""#### Descrição das Variáveis""")
 st.write("Abaixo está uma explicação sobre cada uma das variáveis e sua relação com o preço do petróleo:")
 
 st.subheader("🛢️ Preço do Petróleo Brent")
