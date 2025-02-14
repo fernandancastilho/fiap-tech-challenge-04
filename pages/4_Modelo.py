@@ -125,7 +125,7 @@ if st.button("🔄Atualizar Dados"):
     st.cache_data.clear()
     st.rerun()
 
-if st.button("➡️Realizar Análise"):
+if st.button("➡️Realizar Previsão"):
     reg = train_model()
     last_n_days = basef.index[-diaspred:]
     x_test, y_test = basef.loc[last_n_days, selected_features], basef.loc[last_n_days, TARGET]
