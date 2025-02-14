@@ -25,7 +25,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---- TÍTULO E INTRODUÇÃO ----
-st.markdown("""<h2 class="main-title"> 📈🛢️Variação Relativa do Petróleo e Outros Índices</h2>""", unsafe_allow_html=True)
+st.markdown("""<h2 class="main-title"> 📈Variação Relativa do Petróleo e Outros Índices</h2>""", unsafe_allow_html=True)
 
 # ---- FUNÇÃO PARA OBTER DADOS ----
 @st.cache_data
