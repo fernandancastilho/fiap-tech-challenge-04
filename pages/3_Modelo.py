@@ -62,7 +62,7 @@ st.markdown('<h2>📈 Previsão do Preço do Petróleo</h2>', unsafe_allow_html=
 st.markdown(f"""
 <div class="st-info-box">
 Defina a data desejada para prever o preço do barril de petróleo. O modelo se baseia no fechamento do dia anterior para calcular as previsões futuras.
-Recomendamos previsões de curto prazo (<strong>7 a 15 dias</strong>) para maior precisão, mas você pode explorar até <strong>30 dias</strong> a partir de <strong>{data_inicial_formatada}</strong>.
+Recomendamos previsões de curto prazo (<strong>7 a 15 dias</strong>) para maior precisão, mas você pode explorar até <strong>30 dias</strong> a partir de <strong>hoje</strong>.
 </div><br/>
 """, unsafe_allow_html=True)
 st.markdown('<div class="st-observation">* As previsões estão sendo realizadas com base em dados históricos dos últimos 20 anos.</div>', unsafe_allow_html=True)
