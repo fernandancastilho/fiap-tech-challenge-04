@@ -36,7 +36,12 @@ st.markdown("""<h4>Ações</h4>
     <p style="text-align: justify;">
         &nbsp;&nbsp;&nbsp;&nbsp;Tendo em vista a importância desses fatores para a precificação do petróleo, acompanhá-los é fundamental para previsões de precificações e suas flutuações para a tomada de decisão na precificação interna da gasolina e para projeções fundamentais ao negócio, como planejamento financeiro, fluxo de caixa, entre outras necessidades empresariais.
         <br/><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;Para auxiliar no processo, desenvolvemos uma aplicação que pode prever o preço do petróleo utilizando-se de dados estatísticos históricos para que, com uma informação bem próxima da realidade futura, a empresa possa tomar decisões melhores de negócio. Utilizando-se desse modelo preditivo, a empresa pode definir o melhor preço médio do combustível e distribuí-lo de maneira eficiente por todas as regiões do país para maximizar seus lucros.
+        &nbsp;&nbsp;&nbsp;&nbsp;Para auxiliar no processo, foi desenvolvido um modelo de Machine Learning que pode prever o preço do petróleo, utilizando-se de dados estatísticos históricos para que, com uma informação bem próxima da realidade futura, a empresa possa tomar decisões melhores de negócio. Utilizando-se desse modelo preditivo, a empresa poderia definir o melhor preço médio do combustível e distribuí-lo de maneira eficiente por todas as regiões do país para maximizar seus lucros.
+            <br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;Entretanto, como visto nos demais módulos do dashboard, o valor dessa commoditie está altamente relacionado com fatores externos como guerras, conflitos, políticas economicas, dentre outros fatores que causem desequilibrio na sua oferta e demanda. Como o modelo foi desenvolvido para prever dados futuros, todas as features utilizadas tratam-se de dados temporais, e por isso não serão capazes de prever fatores externos.
+            <br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;Conclui-se que, a melhor forma de saber o futuro do petróleo é estando inteiramente informado sobre notícias e movimentações que envolvam países como Rússia, EUA, China, Arábia Saudita e o Oriente Médio no geral, bem como atualizado em relação a políticas externas e movimentações de grandes líderes. Em condições normais, considerando padrões sazonais e tendencias, o modelo desenvolvido pode ser utilizado para estimar cotações futuras com boa precisão.
+        
     </p>
 """, unsafe_allow_html=True)
 
