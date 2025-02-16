@@ -41,7 +41,6 @@ st.markdown("""<h4>Ações</h4>
         &nbsp;&nbsp;&nbsp;&nbsp;Entretanto, como visto nos demais módulos do dashboard, o valor dessa commoditie está altamente relacionado com fatores externos como guerras, conflitos, políticas economicas, dentre outros fatores que causem desequilibrio na sua oferta e demanda. Como o modelo foi desenvolvido para prever dados futuros, todas as features utilizadas tratam-se de dados temporais, e por isso não serão capazes de prever fatores externos.
             <br/><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;Conclui-se que, a melhor forma de saber o futuro do petróleo é estando inteiramente informado sobre notícias e movimentações que envolvam países como Rússia, EUA, China, Arábia Saudita e o Oriente Médio no geral, bem como atualizado em relação a políticas externas e movimentações de grandes líderes. Em condições normais, considerando padrões sazonais e tendencias, o modelo desenvolvido pode ser utilizado para estimar cotações futuras com boa precisão.
-        
     </p>
 """, unsafe_allow_html=True)
 
